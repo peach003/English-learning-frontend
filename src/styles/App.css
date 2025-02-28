@@ -1,0 +1,24 @@
+/* 设置整个页面的背景色 */
+body {
+    background-color: #f0e8ff; /* 设置淡紫色背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* 让 app 组件居中显示 */
+ 
+  .app-container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 60px;
+    overflow: visible;
+    position: relative;
+    padding: 150px 20px 20px; /* 调整顶部 padding，让内容不会覆盖导航栏 */
+    min-height: 600px;
+  }
+  

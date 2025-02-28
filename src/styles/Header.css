@@ -1,0 +1,42 @@
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: right;
+    padding: 10px 30px;
+    background-color: #f7d2ef;
+    box-shadow: none; /* 移除阴影，使其完全嵌入白色方框 */
+    position: absolute; /* 使导航栏出现在白色方框内 */
+    width: 95%; /* 适配白色方框宽度 */
+    max-width: 1500px; /* 限制最大宽度 */
+    top: 50px; /* 调整导航栏在白色方框中的位置 */
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 15px; /* 让导航栏适配白色方框的圆角 */
+    z-index: 100; /* 确保导航栏可见 */
+  }
+  
+  /* 设置 Logo */
+
+  /* 设置导航菜单 */
+  .nav-menu ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-menu li {
+    margin: 0 80px;
+  }
+  
+  .nav-menu a {
+    text-decoration: none;
+    color: #480463;
+    font-weight: 800;
+    transition: color 0.3s;
+  }
+  
+  .nav-menu a:hover {
+    color: #6366f1;
+  }
+  

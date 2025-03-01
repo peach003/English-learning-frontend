@@ -1,0 +1,73 @@
+.dashboard-sidebar {
+  width: 300px; /* ✅ 固定 Sidebar 宽度 */
+  background-color: #2d2a45;
+  padding: 30px 20px; /* ✅ 适当增加左右 padding */
+  display: flex;
+  flex-direction: column; /* ✅ 让按钮纵向排列 */
+  align-items: center;
+  position: relative;
+  overflow: visible;
+  z-index: 10;
+}
+
+/* 确保导航按钮部分宽度适中 */
+.dashboard-nav {
+  display: flex;
+  flex-direction: column; /* ✅ 纵向排列 */
+  gap: 15px; /* ✅ 按钮间距 */
+  width: 100%; /* ✅ 确保按钮填充 sidebar */
+  align-items: center; /* ✅ 让按钮在 sidebar 内水平居中 */
+}
+
+/* 按钮样式 */
+.dashboard-button {
+  width: 90%; /* ✅ 按钮宽度占 Sidebar 90%，不贴边 */
+  max-width: 250px; /* ✅ 限制最大宽度，避免太宽 */
+  padding: 12px 15px; /* ✅ 适当调整内边距 */
+  background-color: #3f3d56;
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+/* 按钮 Hover 效果 */
+.dashboard-button:hover {
+  background-color: #565379; 
+}
+
+/* Log Out 按钮 */
+.logout-button {
+  background-color: #641560; 
+}
+
+.logout-button:hover {
+  background-color: #d43f50;
+}
+
+.sidebar-magnifier {
+  position: absolute;
+  bottom: 50px; /* ✅ 图片向下溢出 */
+  left: 60%;
+  transform: translateX(-50%); /* ✅ 图片居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 15;
+  overflow: visible;
+}
+
+/* ✅ magnifier 图片样式 */
+.magnifier-img {
+  width: 500%; 
+  
+  height: auto;
+  opacity: 0.8; /* ✅ 让图片稍微透明 */
+  transition: opacity 0.3s ease-in-out;
+ 
+}

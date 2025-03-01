@@ -11,7 +11,7 @@
   .top-decoration {
     position: absolute;
     top: -250px; /* 让它比白色方框更高，部分超出 */
-    left: 30%;
+    left: 10%;
     transform: translateX(-50%);
     z-index: 150; /* 确保它在白色方框和背景的交界处 */
   }

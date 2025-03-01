@@ -1,0 +1,68 @@
+/* ✅ 视频学习页面 */
+.videos-container {
+    width: 90%;
+    max-width: 800px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px;
+    margin: 50px auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* ✅ 标题样式 */
+  .videos-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* ✅ 音频播放器样式 */
+  .audio-player {
+    margin: 20px auto;
+  }
+  
+  .audio-player audio {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  /* ✅ 字幕区域 */
+  .subtitle-container {
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  /* ✅ 单词释义区域 */
+  .word-definition-container {
+    background-color: #e3e3e3;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  /* ✅ 适配小屏幕 */
+  @media (max-width: 768px) {
+    .videos-container {
+      width: 95%;
+      padding: 20px;
+    }
+  
+    .audio-player audio {
+      max-width: 100%;
+    }
+  
+    .subtitle-container,
+    .word-definition-container {
+      font-size: 16px;
+      padding: 10px;
+    }
+  }
+  

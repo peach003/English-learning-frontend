@@ -1,19 +1,36 @@
 .header {
-    display: flex;
-    justify-content: flex-end;
-    align-items: right;
-    padding: 10px 30px;
-    background-color: #f7d2ef;
-    box-shadow: none; /* 移除阴影，使其完全嵌入白色方框 */
-    position: absolute; /* 使导航栏出现在白色方框内 */
-    width: 95%; /* 适配白色方框宽度 */
-    max-width: 1500px; /* 限制最大宽度 */
-    top: 50px; /* 调整导航栏在白色方框中的位置 */
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 15px; /* 让导航栏适配白色方框的圆角 */
-    z-index: 100; /* 确保导航栏可见 */
-  }
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 30px;
+  background-color: #eec3e5;
+  box-shadow: none;
+  position: absolute;
+
+  width: 93%; /* ✅ 让 Header 自适应父级 (适配所有页面) */
+  max-width: 1400px; /* ✅ 限制最大宽度，与不同页面的 container 保持一致 */
+  height: 30px; /* ✅ 适当调整高度 */
+
+  top:50px; /* ✅ 保持 Header 与页面顶部的固定间距 */
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 15px;
+  z-index: 100;
+}
+
+/* ✅ 适配不同页面 */
+.login-container, .register-container, .main-content-container {
+  width: 90%;
+  max-width: 800px; /* ✅ 确保每个页面的主内容与 Header 宽度一致 */
+  margin: 80px auto 0; /* ✅ 确保与 Header 有适当间距 */
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative; /* ✅ 确保 Header 以它们为基准 */
+}
+
+
   
   /* 设置 Logo */
 

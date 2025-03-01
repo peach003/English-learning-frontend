@@ -1,0 +1,36 @@
+.dashboard-statistics {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgb(165, 200, 223);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  overflow: hidden; /* ✅ 解决折线图溢出问题 */
+}
+
+/* ✅ 限制折线图大小，防止溢出 */
+.chart-container {
+  width: 100%;
+  max-width: 850px; /* ✅ 限制最大宽度 */
+  height: 300px;
+  padding: 10px;
+  overflow: hidden; /* ✅ 确保折线图不会超出 */
+}
+
+/* ✅ 让 Canvas 适应容器 */
+.chart-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ✅ 标题样式 */
+.statistics-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #1b181b;
+  margin-bottom: 15px;
+}
+
+

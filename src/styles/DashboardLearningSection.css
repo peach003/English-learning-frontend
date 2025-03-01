@@ -1,0 +1,31 @@
+/* ✅ 确保卡片容器仍然保持横向排列 */
+.card-container {
+  display: flex;
+  flex-direction: row; /* ✅ 强制横向排列 */
+  gap: 20px;
+  justify-content: space-between;
+}
+
+/* ✅ 让 card 正常显示 */
+.card {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* ✅ 让 card 图片正确显示 */
+.card img {
+  width: 115%;
+  height: auto;
+}
+
+/* ✅ 鼠标悬停时放大 */
+.card:hover {
+  transform: scale(1.05);
+}
+
+
+  

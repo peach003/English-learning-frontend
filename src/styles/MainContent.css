@@ -3,7 +3,19 @@
   padding: 10px 20px;
   display: flex;
   flex-direction: column;
-  min-height: 350px;
+  min-height: 600px;
+}
+.white-container {
+  width: 95%;
+  max-width: 1200px; /* ✅ 限制最大宽度 */
+  background-color: white;
+  border-radius: 20px; /* ✅ 让白色背景框有圆角 */
+  padding: 100px;
+  margin: 40px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* ✅ 添加轻微阴影 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 让文字在右，图片在左 */
@@ -58,20 +70,32 @@
 }
 
 /* 按钮格式 */
+.button-wrapper {
+  display: inline-block;
+  text-decoration: none;
+}
+
 .get-started-btn {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 12px 24px;
   background-color: #6366f1;
   color: white;
-  padding: 12px 24px;
-  border: none;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
   border-radius: 8px;
-  font-weight: 600;
+  border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
+  height:40px;
 }
 
 .get-started-btn:hover {
   background-color: #4f46e5;
 }
+
 
 /* 让书包图片位于文字下方 */
 .bottom-decoration {
@@ -83,13 +107,25 @@
 /* 让书包放在白色方框和紫色背景的交界处 */
 .bottom-decoration {
   position: absolute;
-  bottom: -200px; /* 让它稍微超出白色方框 */
-  right: 00%; /* 让书包靠右一点 */
+  bottom: -50px; /* 让它稍微超出白色方框 */
+  right: 10%; /* 让书包靠右一点 */
   z-index: 10; /* 确保不会被遮挡 */
   overflow: visible; /* 让超出部分仍然可见 */
 }
 
 .bottom-decor-img {
-  width: 400px; /* 适当调整大小 */
+  width: 220px; /* 适当调整大小 */
   height: auto;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 60px;
+  overflow: visible;
+  position: relative;
+  padding: 150px 20px 20px; /* 调整顶部 padding，让内容不会覆盖导航栏 */
+  min-height: 600px;
 }

@@ -1,0 +1,88 @@
+/* ✅ 让注册页面背景填充整个屏幕，并移除外部白色框 */
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1000px; /* ✅ 固定宽度，与登录页一致 */
+  height: 650px; /* ✅ 固定高度 */
+  background-color: transparent; /* ✅ 避免白色外框 */
+  margin: 50px auto;
+  border-radius: 20px;
+}
+
+/* ✅ 让注册表单保持与登录页一致 */
+.register-container {
+  width: 90%;
+  max-width: 800px;
+  background-color: #f5f3f3;
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 600px; /* ✅ 确保与主页结构一致 */
+  margin-top: -100px; /* ✅ 避免与 Header 重叠 */
+}
+
+/* ✅ 注册内容居中 */
+.register-content {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.register-container h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.register-container form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.register-container input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* ✅ 注册按钮 */
+.register-container button {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  background-color: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.register-container button:hover {
+  background-color: #4f46e5;
+}
+
+/* ✅ Illustration 图片定位 */
+.illustration-container {
+  position: absolute;
+  top: 50px; /* ✅ 控制图片与注册框的距离 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px; 
+  /* ✅ 控制图片大小 */
+  z-index: 150;
+}
+
+.illustration-img {
+  width: 100%;
+  height: auto;
+}

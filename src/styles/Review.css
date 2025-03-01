@@ -1,0 +1,59 @@
+/* ✅ 复习主内容 */
+.review-main-content {
+    flex-grow: 1;
+    padding: 40px;
+    margin-left: 250px; /* ✅ 确保 Sidebar 不会影响内容 */
+    text-align: center;
+  }
+  
+  /* ✅ 让单词列表和释义框并排 */
+  .review-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px; /* ✅ 控制左右间距 */
+  }
+  
+  /* ✅ 左侧 - 单词列表 */
+  .word-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 40%; /* ✅ 控制单词列表宽度 */
+  }
+  
+  /* ✅ 单词按钮 */
+  .word-button {
+    padding: 10px 20px;
+    background-color: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .word-button:hover {
+    background-color: #4f46e5;
+  }
+  
+  /* ✅ 右侧 - 选中的单词释义框 */
+  .word-definition {
+    width: 50%;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  /* ✅ 默认显示文本 */
+  .default-message {
+    color: #999;
+    font-style: italic;
+  }
+  

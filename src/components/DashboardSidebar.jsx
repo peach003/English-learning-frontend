@@ -6,11 +6,11 @@ const DashboardSidebar = () => {
   return (
     <div className="dashboard-sidebar">
       <nav className="dashboard-nav">
-        <Link to="/dashboard" className="dashboard-button">Dashboard</Link>
+        <Link to="/dashboard" className="dashboard-button">Home</Link>
         <Link to="/videos" className="dashboard-button">Videos</Link>
         <Link to="/dictionary" className="dashboard-button">Dictionary</Link>
-        <Link to="/schedule" className="dashboard-button">Schedule</Link>
-        <Link to="/settings" className="dashboard-button">Settings</Link>
+        <Link to="/Review" className="dashboard-button">Review</Link>
+        
         <Link to="/logout" className="dashboard-button logout-button">Log Out</Link>
       </nav>
       <div className="sidebar-magnifier">

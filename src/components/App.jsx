@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { AuthProvider } from "../context/AuthContext"; // ✅ 添加 AuthProvider
+import PrivateRoute from "./PrivateRoute"; // ✅ 添加 受保护路由
 import MainContent from "./MainContent";
 import Register from "./Register";
 import "../styles/App.css";
@@ -8,23 +10,24 @@ import Dashboard from "./Dashboard";
 import Videos from "./Videos"; 
 import Dictionary from "./Dictionary";
 import Review from "./Review";
+
 function App() {
   return (
-    <Router>
-      
-
+    <AuthProvider> {/* ✅ 让所有组件可以访问 AuthContext */}
+      <Router>
         <Routes>
           <Route path="/" element={<MainContent />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} /> 
-          <Route path="/videos" element={<Dashboard />} /> 
-          <Route path="/videos" element={<Videos />} />
-          <Route path="/dictionary" element={<Dictionary />} />
-          <Route path="/review" element={<Review />} /> 
+          
+          {/* ✅ 受保护路由 (用户必须登录才能访问) */}
+          <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} /> 
+          <Route path="/videos" element={<PrivateRoute><Videos /></PrivateRoute>} />
+          <Route path="/dictionary" element={<PrivateRoute><Dictionary /></PrivateRoute>} />
+          <Route path="/review" element={<PrivateRoute><Review /></PrivateRoute>} /> 
         </Routes>
-      
-    </Router>
+      </Router>
+    </AuthProvider>
   );
 }
 

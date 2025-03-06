@@ -1,0 +1,83 @@
+/* 复习页面布局 */
+.dictionary-layout {
+    display: flex; 
+    flex-direction: row; 
+    align-items: flex-start; 
+    justify-content: space-between; 
+    gap: 20px; 
+  }
+  
+  /* 左侧 - 单词列表部分 */
+  .word-list-section {
+    flex: 1;
+    padding: 20px;
+    width: 250px;
+    border-right: 1px solid #e0e0e0;
+  }
+  
+  .word-list-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .word-list-table th {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .word-button {
+    width: 30%;
+    text-align: right;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .word-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .word-button.selected {
+    background-color: #e0e0e0;
+    font-weight: bold;
+  }
+  
+  /*  右侧 - 释义部分 */
+  .word-meaning-section {
+    flex: 1;
+    padding: 2px;
+    width: 300px;
+   
+  }
+  
+  .word-meaning-section h2 {
+    margin-bottom: 20px;
+    
+  }
+  
+  .word-meaning-content {
+    background-color: #f9f9f9;
+  
+    padding: 20px;
+    border-radius: 8px;
+    height: 400px;
+    width: 450px;
+  }
+  
+  .default-message {
+    color: #888;
+    text-align: center;
+  }
+  
+  .selected-word-details h3 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .selected-word-details p {
+    color: #666;
+  }
+  

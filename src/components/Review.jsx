@@ -1,49 +1,40 @@
-import React, { useState } from "react";
-import DashboardSidebar from "./DashboardSidebar"; // ✅ 保留 Sidebar
-import "../styles/Review.css";
+import React from "react";
+import DashboardSidebar from "./DashboardSidebar";
+import { useNavigate } from "react-router-dom";
+import "../styles/Review.css"; 
+
+const categories = [
+  { id: "new", image: "/assets/1.png", name: "New Words" }, 
+  { id: "basic", image: "/assets/2.png", name: "Beginner Review" },
+  { id: "intermediate", image: "/assets/3.png", name: "Intermediate Review" },
+  { id: "advanced", image: "/assets/1.png", name: "Advanced Review" }, 
+  { id: "recommended", image: "/assets/2.png", name: "Recommended Words" },
+];
 
 const Review = () => {
-  // ✅ 复习单词列表
-  const words = [
-    { word: "Perseverance", definition: "Persistence in doing something despite difficulty." },
-    { word: "Diligent", definition: "Showing care and effort in one's work or duties." },
-    { word: "Adaptability", definition: "Ability to adjust to new conditions." },
-    { word: "Consistency", definition: "The quality of achieving a level of performance that does not vary greatly over time." },
-  ];
-
-  // ✅ 选中的单词（默认无选中）
-  const [selectedWord, setSelectedWord] = useState(null);
+  const navigate = useNavigate();
 
   return (
-    <div className="dashboard-container"> {/* ✅ 保留 Dashboard 结构 */}
-      <div className="dashboard-background"></div> {/* ✅ 背景 */}
-      <DashboardSidebar /> {/* ✅ Sidebar */}
+    <div className="dashboard-container">
+      <div className="dashboard-background"></div>
+      <DashboardSidebar />
 
       <div className="review-main-content">
-        <h2 className="review-title">Review Words</h2>
+        {/* 标题部分 */}
+        <h2 className="review-title">Pick your notebook</h2>
 
-        {/* ✅ 新增 `review-content` 让单词列表和释义左右排列 */}
-        <div className="review-content">
-          {/* ✅ 左侧 - 单词表 */}
-          <div className="word-list">
-            {words.map((item, index) => (
-              <button key={index} className="word-button" onClick={() => setSelectedWord(item)}>
-                {item.word}
-              </button>
-            ))}
-          </div>
-
-          {/* ✅ 右侧 - 选中的单词释义 */}
-          <div className="word-definition">
-            {selectedWord ? (
-              <>
-                <h3>{selectedWord.word}</h3>
-                <p>{selectedWord.definition}</p>
-              </>
-            ) : (
-              <p className="default-message">Select a word to see the definition.</p>
-            )}
-          </div>
+        {/* 按钮部分：横向排列 */}
+        <div className="category-container">
+          {categories.map((category) => (
+            <div
+              key={category.id}
+              className="category-card"
+              onClick={() => navigate(`/review/${category.id}`)}
+            >
+              <img src={category.image} alt={category.name} className="category-image" />
+              <p className="category-name">{category.name}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -51,3 +42,4 @@ const Review = () => {
 };
 
 export default Review;
+

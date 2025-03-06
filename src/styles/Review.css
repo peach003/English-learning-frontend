@@ -1,59 +1,53 @@
-/* ✅ 复习主内容 */
+/* Review 页面样式 */
 .review-main-content {
-    flex-grow: 1;
-    padding: 40px;
-    margin-left: 250px; /* ✅ 确保 Sidebar 不会影响内容 */
-    text-align: center;
-  }
-  
-  /* ✅ 让单词列表和释义框并排 */
-  .review-content {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 50px; /* ✅ 控制左右间距 */
-  }
-  
-  /* ✅ 左侧 - 单词列表 */
-  .word-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 40%; /* ✅ 控制单词列表宽度 */
-  }
-  
-  /* ✅ 单词按钮 */
-  .word-button {
-    padding: 10px 20px;
-    background-color: #6366f1;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  .word-button:hover {
-    background-color: #4f46e5;
-  }
-  
-  /* ✅ 右侧 - 选中的单词释义框 */
-  .word-definition {
-    width: 50%;
-    background-color: #f3f3f3;
-    border-radius: 10px;
-    padding: 20px;
-    font-size: 18px;
-    color: #333;
-    font-weight: bold;
-    text-align: left;
-  }
-  
-  /* ✅ 默认显示文本 */
-  .default-message {
-    color: #999;
-    font-style: italic;
-  }
-  
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 标题：居中对齐 */
+.review-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* 容器：让按钮横向排列 */
+.category-container {
+  display: flex;
+  justify-content: center; /* 居中对齐 */
+  gap: 20px; /* 按钮间距 */
+  flex-wrap: wrap; /* 适配小屏幕 */
+}
+
+/* 每个按钮的样式 */
+.category-card {
+  width: 120px; /* 控制大小 */
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.category-card:hover {
+  transform: scale(1.1);
+}
+
+/* 按钮图片样式 */
+.category-image {
+  width: 100px; /* 图片大小 */
+  height: auto;
+}
+
+/* 按钮文字样式 */
+.category-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+  margin-top: 8px;
+}
+
+

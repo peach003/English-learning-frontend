@@ -1,64 +1,62 @@
+/* 🔹 让 My Dictionary 和 Details 在同一行 */
+.dictionary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 2px solid #e0e0e0;
+}
 
-  /* ✅ 词典主内容 */
-  .dictionary-main-content {
-    flex-grow: 1;
-    padding: 40px;
-    margin-left: 250px; /* ✅ 确保 Sidebar 不会影响内容 */
-    text-align: center;
-    position: relative; /* ✅ 确保不会被背景层 `z-index: -1` 影响 */
-    background: none; /* ✅ 避免 `背景色` 覆盖 `dashboard-background` */
-  }
-  
-  /* ✅ 让单词列表和释义框并排 */
-  .dictionary-content {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 50px; /* ✅ 控制左右间距 */
-  }
-  
-  /* ✅ 左侧 - 单词列表 */
-  .word-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 40%; /* ✅ 控制单词列表宽度 */
-  }
-  
-  /* ✅ 单词按钮 */
-  .word-button {
-    padding: 10px 20px;
-    background-color: #6366f1;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  .word-button:hover {
-    background-color: #4f46e5;
-  }
-  
-  /* ✅ 右侧 - 选中的单词释义框 */
-  .word-definition {
-    width: 50%;
-    background-color: #f3f3f3;
-    border-radius: 10px;
-    padding: 20px;
-    font-size: 18px;
-    color: #333;
-    font-weight: bold;
-    text-align: left;
-  }
-  
-  /* ✅ 默认显示文本 */
-  .default-message {
-    color: #999;
-    font-style: italic;
-  }
-  
+/* 🔹 主要布局 */
+.dictionary-layout {
+  display: flex;
+  flex-direction: row; /* 让单词列表和释义框水平排列 */
+  align-items: flex-start; /* 确保顶部对齐 */
+  justify-content: space-between; /* 让两部分之间有间距 */
+  gap: 20px; /* 增加间距，防止太拥挤 */
+  flex-wrap: wrap; /* 允许在小屏幕换行，防止内容溢出 */
+}
 
-  
+/* 🔹 左侧 - 单词列表 */
+.word-list-section {
+  flex: 1;
+  padding: 20px;
+  min-width: 250px; /* 设置最小宽度，防止挤压 */
+  max-width: 55%; /* 限制最大宽度 */
+  border-right: 1px solid #e0e0e0;
+}
+
+.word-button {
+  width: 100%;
+  text-align: center;
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.word-button:hover {
+  background-color: #f0f0f0;
+}
+
+.word-button.selected {
+  background-color: #e0e0e0;
+  font-weight: bold;
+}
+
+/* 🔹 右侧 - 释义部分 */
+.word-meaning-section {
+  flex: 2; /* 释义框占更多空间 */
+  padding: 20px;
+  min-width: 350px; /* 限制最小宽度 */
+  max-width: 55%; /* 限制最大宽度 */
+}
+
+.word-meaning-content {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  max-height: 350px; /* 限制最大高度，防止溢出 */
+  overflow-y: auto; /* 允许滚动，防止溢出 */
+}

@@ -1,48 +1,71 @@
 import React, { useState } from "react";
-import DashboardSidebar from "./DashboardSidebar"; // ✅ 侧边栏
+import DashboardSidebar from "./DashboardSidebar";
 import "../styles/Dictionary.css";
+import useOxfordDictionary from "../hooks/useOxfordDictionary"; // 统一的 Hook
 
-const Dictionary = () => {
-  // ✅ 词汇列表
-  const words = [
-    { word: "Eloquent", definition: "Fluent or persuasive in speaking or writing." },
-    { word: "Meticulous", definition: "Showing great attention to detail; very careful." },
-    { word: "Resilient", definition: "Able to withstand or recover quickly from difficulties." },
-    { word: "Innovative", definition: "Featuring new methods; advanced and original." },
-  ];
-
-  // ✅ 选中的单词（默认无选中）
+const Dictionary = ({ words }) => {
   const [selectedWord, setSelectedWord] = useState(null);
 
+  // 使用 Oxford API 获取单词定义和翻译
+  const { definition, translation, loading } = useOxfordDictionary(selectedWord?.word, "en", "zh");
+
   return (
-    <div className="dashboard-container"> {/* ✅ 保留 Dashboard 结构 */}
-      <div className="dashboard-background"></div> {/* ✅ 保留 背景层 */}
-      <DashboardSidebar /> {/* ✅ 保留 Sidebar */}
+    <div className="dashboard-container">
+      <div className="dashboard-background"></div>
+      <DashboardSidebar />
 
       <div className="dictionary-main-content">
-        <h2 className="dictionary-title">Favorite Words</h2>
+        {/* 🔹 标题部分，使其在一行 */}
+        <div className="dictionary-header">
+          <h2 className="dictionary-title">My Dictionary</h2>
+          <h2 className="details-title">Details</h2>
+        </div>
 
-        {/* ✅ 新增 `dictionary-content` 让单词列表和释义左右排列 */}
-        <div className="dictionary-content">
-          {/* ✅ 左侧 - 单词表 */}
-          <div className="word-list">
-            {words.map((item, index) => (
-              <button key={index} className="word-button" onClick={() => setSelectedWord(item)}>
-                {item.word}
-              </button>
-            ))}
+        {/* 🔹 主要内容区域：左侧单词列表 + 右侧释义框 */}
+        <div className="dictionary-layout">
+          {/* 左侧：单词列表 */}
+          <div className="word-list-section">
+            <table className="word-list-table">
+              <tbody>
+                {words.map((item, index) => (
+                  <tr key={index}>
+                    <td>
+                      <button
+                        className={`word-button ${selectedWord?.word === item.word ? "selected" : ""}`}
+                        onClick={() => setSelectedWord(item)}
+                      >
+                        {item.word}
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
 
-          {/* ✅ 右侧 - 选中的单词释义 */}
-          <div className="word-definition">
-            {selectedWord ? (
-              <>
-                <h3>{selectedWord.word}</h3>
-                <p>{selectedWord.definition}</p>
-              </>
-            ) : (
-              <p className="default-message">Select a word to see the definition.</p>
-            )}
+          {/* 右侧：单词详情 */}
+          <div className="word-meaning-section">
+            <div className="word-meaning-content">
+              {selectedWord ? (
+                <div className="selected-word-details">
+                  <h3>{selectedWord.word}</h3>
+
+                  {/* 定义显示区域 */}
+                  <div className="definition-section">
+                    <h4>Definition</h4>
+                    {loading ? <p className="loading">Loading...</p> : <p>{definition || "No definition available"}</p>}
+                  </div>
+
+                  {/* 翻译显示区域 */}
+                  <div className="translation-section">
+                    <h4>Translation (中文)</h4>
+                    {loading ? <p className="loading">Translating...</p> : <p>{translation || "No translation available"}</p>}
+                  </div>
+                </div>
+              ) : (
+                <p className="default-message">Select a word to see details</p>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -50,4 +73,15 @@ const Dictionary = () => {
   );
 };
 
-export default Dictionary;
+// 🔹 保持原有单词列表
+export default function DefaultDictionary() {
+  const words = [
+    { word: "Apple" },
+    { word: "Addition" },
+    { word: "Appear" },
+    { word: "Assist" },
+  ];
+
+  return <Dictionary words={words} />;
+}
+

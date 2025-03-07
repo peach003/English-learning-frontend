@@ -1,62 +1,85 @@
-/* 🔹 让 My Dictionary 和 Details 在同一行 */
-.dictionary-header {
+/* 🔹 词典页面整体布局 */
+.dictionary-main-content {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column; /* ✅ 让标题独占一行 */
   align-items: center;
-  padding: 10px 20px;
-  border-bottom: 2px solid #e0e0e0;
+  width: 100%;
 }
 
-/* 🔹 主要布局 */
+/* 🔹 标题 */
+.dictionary-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px; /* ✅ 给标题留出空间 */
+  text-align: center;
+  width: 100%;
+}
+
+/* 🔹 让单词列表和释义框左右排列 */
 .dictionary-layout {
   display: flex;
-  flex-direction: row; /* 让单词列表和释义框水平排列 */
-  align-items: flex-start; /* 确保顶部对齐 */
-  justify-content: space-between; /* 让两部分之间有间距 */
-  gap: 20px; /* 增加间距，防止太拥挤 */
-  flex-wrap: wrap; /* 允许在小屏幕换行，防止内容溢出 */
+  flex-direction: row; /* ✅ 左右排列 */
+  align-items: flex-start;
+  justify-content: center;
+  gap: 30px; /* ✅ 控制两侧间距 */
+  width: 100%;
 }
 
 /* 🔹 左侧 - 单词列表 */
-.word-list-section {
+.dictionary-word-list {
   flex: 1;
+  max-width: 350px; /* ✅ 增加单词列表的宽度 */
   padding: 20px;
-  min-width: 250px; /* 设置最小宽度，防止挤压 */
-  max-width: 55%; /* 限制最大宽度 */
   border-right: 1px solid #e0e0e0;
+  text-align: center;
 }
 
-.word-button {
-  width: 100%;
+/* 🔹 单词按钮 */
+.dictionary-word-button {
+  display: block; /* ✅ 确保按钮不会被挤压 */
+  width: auto; /* ✅ 让按钮宽度适应单词 */
   text-align: center;
   background: none;
   border: none;
-  padding: 10px;
+  padding: 15px; /* ✅ 增加按钮的点击区域 */
   cursor: pointer;
   transition: background-color 0.3s ease;
+
+  font-size: 45px !important; /* ✅ 强制字体变大 */
+  font-weight: bold;
 }
 
-.word-button:hover {
+/* 🔹 单词按钮悬停效果 */
+.dictionary-word-button:hover {
   background-color: #f0f0f0;
 }
 
-.word-button.selected {
+/* 🔹 选中的单词按钮 */
+.dictionary-word-button.selected {
   background-color: #e0e0e0;
   font-weight: bold;
 }
 
 /* 🔹 右侧 - 释义部分 */
-.word-meaning-section {
-  flex: 2; /* 释义框占更多空间 */
+.dictionary-meaning-section {
+  flex: 1;
+  max-width: 400px;
   padding: 20px;
-  min-width: 350px; /* 限制最小宽度 */
-  max-width: 55%; /* 限制最大宽度 */
+  text-align: left;
+  
+  display: flex; 
+  flex-direction: column; /* ✅ 让释义框紧密排列 */
+  align-items: flex-start;
 }
 
-.word-meaning-content {
+
+
+/* 🔹 释义框 */
+.dictionary-meaning-content {
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 8px;
-  max-height: 350px; /* 限制最大高度，防止溢出 */
-  overflow-y: auto; /* 允许滚动，防止溢出 */
+  width: 100%;
+  min-height: 250px;
+  overflow-y: auto; /* ✅ 允许滚动，防止溢出 */
 }

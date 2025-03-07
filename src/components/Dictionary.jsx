@@ -1,13 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import DashboardSidebar from "./DashboardSidebar";
 import "../styles/Dictionary.css";
 import useOxfordDictionary from "../hooks/useOxfordDictionary"; // 统一的 Hook
 
-const Dictionary = ({ words }) => {
+const Dictionary = ({ userId }) => {
+  const [words, setWords] = useState([]); // 存储 API 获取的单词
   const [selectedWord, setSelectedWord] = useState(null);
-
-  // 使用 Oxford API 获取单词定义和翻译
   const { definition, translation, loading } = useOxfordDictionary(selectedWord?.word, "en", "zh");
+
+  // 📌 通过 API 获取用户的单词
+  useEffect(() => {
+    const fetchWords = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/api/wordbook/user/${userId}/words`);
+        setWords(response.data);
+      } catch (error) {
+        console.error("Error fetching words:", error);
+      }
+    };
+
+    fetchWords();
+  }, [userId]);
 
   return (
     <div className="dashboard-container">
@@ -15,30 +29,32 @@ const Dictionary = ({ words }) => {
       <DashboardSidebar />
 
       <div className="dictionary-main-content">
-        {/* 🔹 标题部分，使其在一行 */}
         <div className="dictionary-header">
           <h2 className="dictionary-title">My Dictionary</h2>
-          <h2 className="details-title">Details</h2>
+          
         </div>
 
-        {/* 🔹 主要内容区域：左侧单词列表 + 右侧释义框 */}
         <div className="dictionary-layout">
           {/* 左侧：单词列表 */}
           <div className="word-list-section">
             <table className="word-list-table">
               <tbody>
-                {words.map((item, index) => (
-                  <tr key={index}>
-                    <td>
-                      <button
-                        className={`word-button ${selectedWord?.word === item.word ? "selected" : ""}`}
-                        onClick={() => setSelectedWord(item)}
-                      >
-                        {item.word}
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+                {words.length > 0 ? (
+                  words.map((item, index) => (
+                    <tr key={index}>
+                      <td>
+                        <button
+                          className={`word-button ${selectedWord?.word === item.word ? "selected" : ""}`}
+                          onClick={() => setSelectedWord(item)}
+                        >
+                          {item.word}
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr><td>No words found.</td></tr>
+                )}
               </tbody>
             </table>
           </div>
@@ -50,13 +66,11 @@ const Dictionary = ({ words }) => {
                 <div className="selected-word-details">
                   <h3>{selectedWord.word}</h3>
 
-                  {/* 定义显示区域 */}
                   <div className="definition-section">
                     <h4>Definition</h4>
                     {loading ? <p className="loading">Loading...</p> : <p>{definition || "No definition available"}</p>}
                   </div>
 
-                  {/* 翻译显示区域 */}
                   <div className="translation-section">
                     <h4>Translation (中文)</h4>
                     {loading ? <p className="loading">Translating...</p> : <p>{translation || "No translation available"}</p>}
@@ -73,15 +87,8 @@ const Dictionary = ({ words }) => {
   );
 };
 
-// 🔹 保持原有单词列表
+// ✅ 传递 userId 来获取对应用户的单词
 export default function DefaultDictionary() {
-  const words = [
-    { word: "Apple" },
-    { word: "Addition" },
-    { word: "Appear" },
-    { word: "Assist" },
-  ];
-
-  return <Dictionary words={words} />;
+  const userId = 1; // 假设的用户 ID，可以从登录信息获取
+  return <Dictionary userId={userId} />;
 }
-

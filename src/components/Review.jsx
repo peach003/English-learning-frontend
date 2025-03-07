@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Review.css"; 
 
 const categories = [
-  { id: "new", image: "/assets/1.png", name: "New Words" }, 
-  { id: "basic", image: "/assets/2.png", name: "Beginner Review" },
-  { id: "intermediate", image: "/assets/3.png", name: "Intermediate Review" },
-  { id: "advanced", image: "/assets/1.png", name: "Advanced Review" }, 
+  { id: "3-days", image: "/assets/1.png", name: "New Words" }, 
+  { id: "7-days", image: "/assets/2.png", name: "Beginner Review" },
+  { id: "14-days", image: "/assets/3.png", name: "Intermediate Review" },
+  { id: "28-days", image: "/assets/1.png", name: "Advanced Review" }, 
   { id: "recommended", image: "/assets/2.png", name: "Recommended Words" },
 ];
 

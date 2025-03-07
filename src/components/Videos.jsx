@@ -11,6 +11,7 @@ const Videos = () => {
   const [subtitles, setSubtitles] = useState([]);
   const [currentSubtitle, setCurrentSubtitle] = useState("");
   const [selectedWord, setSelectedWord] = useState(null);
+  const [addingWord, setAddingWord] = useState(false);
   const { definition, translation, loading, error } = useOxfordDictionary(selectedWord);
 
   const handleFileChange = (event) => {
@@ -74,6 +75,30 @@ const Videos = () => {
     setSelectedWord(word);
   };
 
+  const handleAddToWordbook = async () => {
+    if (!selectedWord) return;
+    setAddingWord(true);
+
+    try {
+      const response = await axios.post("http://localhost:5000/api/wordbook/add", {
+        userId: 1, // 假设的用户ID
+        word: selectedWord,
+        familiarity: 1, // 初始熟悉度为1
+      });
+
+      if (response.status === 200) {
+        alert("Word added to wordbook!");
+      } else {
+        alert("Failed to add word.");
+      }
+    } catch (error) {
+      console.error("Error adding word:", error);
+      alert("Error adding word to wordbook.");
+    } finally {
+      setAddingWord(false);
+    }
+  };
+
   return (
     <div className="dashboard-container">
       <DashboardSidebar />
@@ -103,7 +128,7 @@ const Videos = () => {
                     key={index}
                     className="clickable-word"
                     onClick={() => handleWordClick(word)}
-                    style={{ marginRight: "5px" }}
+                    style={{ marginRight: "5px", cursor: "pointer", color: "blue" }}
                   >
                     {word} 
                   </span>
@@ -123,6 +148,9 @@ const Videos = () => {
               <>
                 <p><strong>Definition:</strong> {definition}</p>
                 <p><strong>Translation:</strong> {translation}</p>
+                <button onClick={handleAddToWordbook} disabled={addingWord}>
+                  {addingWord ? "Adding..." : "Add to Wordbook"}
+                </button>
               </>
             )}
           </div>

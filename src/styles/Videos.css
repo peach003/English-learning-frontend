@@ -44,14 +44,19 @@
   border: 1px solid #ddd;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  white-space: normal; /* ✅ 允许文本自动换行 */
+  word-wrap: break-word; /* ✅ 让超长单词换行 */
+  overflow-wrap: break-word; /* ✅ 兼容不同浏览器 */
 }
 
-/* ✅ 让字幕单词可以点击 */
+/* ✅ 让字幕单词可点击，并不会影响换行 */
 .word {
   cursor: pointer;
   font-weight: bold;
   color: #007bff;
   transition: color 0.3s ease, background 0.3s ease;
+  display: inline; /* ✅ 让单词正常流动，不强制换行 */
 }
 
 .word:hover {
@@ -60,6 +65,14 @@
   background-color: rgba(0, 123, 255, 0.1);
   border-radius: 5px;
   padding: 2px 5px;
+}
+
+/* ✅ 适配小屏幕，确保字幕不会溢出 */
+@media (max-width: 768px) {
+  .subtitle-container {
+      font-size: 16px;
+      padding: 10px;
+  }
 }
 
 /* ✅ 单词释义区域 */

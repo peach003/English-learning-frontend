@@ -7,7 +7,7 @@ const DashboardSidebar = () => {
     <div className="dashboard-sidebar">
       <nav className="dashboard-nav">
         <Link to="/dashboard" className="dashboard-button">Home</Link>
-        <Link to="/videos" className="dashboard-button">Videos</Link>
+        <Link to="/videos" className="dashboard-button">Audios</Link>
         <Link to="/dictionary" className="dashboard-button">Dictionary</Link>
         <Link to="/Review" className="dashboard-button">Review</Link>
         

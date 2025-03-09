@@ -4,6 +4,7 @@ import DashboardSidebar from "./DashboardSidebar";
 import useOxfordDictionary from "../hooks/useOxfordDictionary";
 import "../styles/Videos.css";
 
+
 const Videos = () => {
   const audioRef = useRef(null);
   const [file, setFile] = useState(null);
@@ -33,15 +34,15 @@ const Videos = () => {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
-      console.log("🎯 Deepgram Response:", response.data);
+      console.log(" Deepgram Response:", response.data);
 
       if (response.data.subtitles && Array.isArray(response.data.subtitles)) {
         setSubtitles(response.data.subtitles);
       } else {
-        console.error("❌ 字幕格式错误:", response.data);
+        console.error("Subtitle format error:", response.data);
       }
     } catch (error) {
-      console.error("❌ Error uploading file:", error);
+      console.error(" Error uploading file:", error);
       alert("Failed to process audio.");
     }
   };
@@ -81,9 +82,9 @@ const Videos = () => {
 
     try {
       const response = await axios.post("http://localhost:5000/api/wordbook/add", {
-        userId: 1, // 假设的用户ID
+        userId: 1, 
         word: selectedWord,
-        familiarity: 1, // 初始熟悉度为1
+        familiarity: 1, 
       });
 
       if (response.status === 200) {
@@ -100,7 +101,9 @@ const Videos = () => {
   };
 
   return (
+  
     <div className="dashboard-container">
+      <div className="dashboard-background"></div>
       <DashboardSidebar />
 
       <div className="videos-container">
@@ -157,6 +160,7 @@ const Videos = () => {
         )}
       </div>
     </div>
+  
   );
 };
 

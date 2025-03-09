@@ -1,29 +1,37 @@
 .dashboard-sidebar {
-  width: 300px; /* ✅ 固定 Sidebar 宽度 */
+  width: 300px; 
   background-color: #2d2a45;
-  padding: 30px 20px; /* ✅ 适当增加左右 padding */
+  padding: 30px 20px; 
   display: flex;
-  flex-direction: column; /* ✅ 让按钮纵向排列 */
+  flex-direction: column; 
   align-items: center;
   position: relative;
   overflow: visible;
   z-index: 10;
 }
 
-/* 确保导航按钮部分宽度适中 */
+/* Ensure that the width of the navigation button section is appropriate */
 .dashboard-nav {
   display: flex;
-  flex-direction: column; /* ✅ 纵向排列 */
-  gap: 15px; /* ✅ 按钮间距 */
-  width: 100%; /* ✅ 确保按钮填充 sidebar */
-  align-items: center; /* ✅ 让按钮在 sidebar 内水平居中 */
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;  /* Set fixed width */
+  height: 270px; /* Set fixed height */
+  align-items: center;
+  justify-content: center; /* Center content vertically */
+  background-color: #f8f8f8; /* Optional: Add a background for visibility */
+  border-radius: 10px; /* Optional: Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Light shadow for better UI */
+  padding: 20px; /* Optional: Add padding for spacing */
+  background-color: transparent;
 }
 
-/* 按钮样式 */
+
+/* Button Style */
 .dashboard-button {
-  width: 90%; /* ✅ 按钮宽度占 Sidebar 90%，不贴边 */
-  max-width: 250px; /* ✅ 限制最大宽度，避免太宽 */
-  padding: 12px 15px; /* ✅ 适当调整内边距 */
+  width: 90%;  
+  max-width: 216px; 
+  padding: 12px 15px; 
   background-color: #3f3d56;
   color: white;
   text-align: center;
@@ -36,12 +44,12 @@
   cursor: pointer;
 }
 
-/* 按钮 Hover 效果 */
+/* Button Hover Effect */
 .dashboard-button:hover {
   background-color: #565379; 
 }
 
-/* Log Out 按钮 */
+
 .logout-button {
   background-color: #641560; 
 }
@@ -52,9 +60,9 @@
 
 .sidebar-magnifier {
   position: absolute;
-  bottom: 50px; /* ✅ 图片向下溢出 */
+  bottom: 50px; 
   left: 60%;
-  transform: translateX(-50%); /* ✅ 图片居中 */
+  transform: translateX(-50%); 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,12 +70,12 @@
   overflow: visible;
 }
 
-/* ✅ magnifier 图片样式 */
+/*  magnifier picture style */
 .magnifier-img {
   width: 500%; 
   
   height: auto;
-  opacity: 0.8; /* ✅ 让图片稍微透明 */
+  opacity: 0.8;
   transition: opacity 0.3s ease-in-out;
  
 }

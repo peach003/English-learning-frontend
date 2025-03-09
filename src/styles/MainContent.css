@@ -7,41 +7,41 @@
 }
 .white-container {
   width: 95%;
-  max-width: 1200px; /* ✅ 限制最大宽度 */
+  max-width: 1200px; 
   background-color: white;
-  border-radius: 20px; /* ✅ 让白色背景框有圆角 */
+  border-radius: 20px; 
   padding: 100px;
   margin: 40px auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* ✅ 添加轻微阴影 */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* 让文字在右，图片在左 */
+/* Keep text on the right and pictures on the left */
 .content-wrapper {
   display: flex;
-  flex-direction: row-reverse; /* 让文字在右侧 */
-  align-items: center; /* 让文字和图片垂直对齐 */
-  justify-content: space-between; /* 让它们均匀分布 */
+  flex-direction: row-reverse; 
+  align-items: center; 
+  justify-content: space-between; 
   position: relative;
   overflow: visible;
 }
 
-/* 让文字部分靠右 */
+
 .text-content {
   flex: 1;
   padding: 40px;
   text-align: left;
 }
-/* 让文字部分整体下移 */
+
 .text-content {
   flex: 1;
   padding: 40px;
   text-align: left;
-  margin-top: 00px; /* 让文字部分整体下移 */
+  margin-top: 00px; 
 }
-/* 让标题和按钮对齐 */
+
 .main-heading {
   font-size: 36px;
   font-weight: 700;
@@ -55,7 +55,7 @@
   margin-bottom: 30px;
 }
 
-/* 让按钮并排显示 */
+
 .cta-buttons {
   display: flex;
   gap: 20px;
@@ -65,11 +65,11 @@
   display: flex;
   gap: 60px;
   margin-top: 20px;
-  justify-content: right; /* 让按钮靠右 */
-  width: 100%; /* 让按钮区域占满整行 */
+  justify-content: right; 
+  width: 100%; 
 }
 
-/* 按钮格式 */
+
 .button-wrapper {
   display: inline-block;
   text-decoration: none;
@@ -97,24 +97,24 @@
 }
 
 
-/* 让书包图片位于文字下方 */
+
 .bottom-decoration {
   display: flex;
   justify-content: right;
   margin-top: 40px;
 }
 
-/* 让书包放在白色方框和紫色背景的交界处 */
+
 .bottom-decoration {
   position: absolute;
-  bottom: -50px; /* 让它稍微超出白色方框 */
-  right: 10%; /* 让书包靠右一点 */
-  z-index: 10; /* 确保不会被遮挡 */
-  overflow: visible; /* 让超出部分仍然可见 */
+  bottom: -50px; 
+  right: 10%; 
+  z-index: 10; 
+  overflow: visible; 
 }
 
 .bottom-decor-img {
-  width: 220px; /* 适当调整大小 */
+  width: 220px; 
   height: auto;
 }
 
@@ -126,6 +126,6 @@
   border-radius: 60px;
   overflow: visible;
   position: relative;
-  padding: 150px 20px 20px; /* 调整顶部 padding，让内容不会覆盖导航栏 */
+  padding: 150px 20px 20px; 
   min-height: 600px;
 }

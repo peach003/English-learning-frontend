@@ -7,17 +7,17 @@ const DashboardLearningSection = () => {
     <div className="dashboard-learning-section">
       <h2 className="section-title">Learn and Live</h2>
       <div className="card-container">
-        {/* ✅ 让 Link 只包裹图片，避免影响卡片布局 */}
+        {/* Make Link wrap images only */}
         <Link to="/videos" className="dashboard-card">
           <img src="/assets/card.png" alt="Videos" />
         </Link>
 
-        {/* ✅ Dictionary 卡片 */}
+        {/*  Dictionary card */}
         <Link to="/dictionary" className="dashboard-card">
           <img src="/assets/card1.png" alt="Dictionary" />
         </Link> 
 
-        {/* ✅ Review Plan 卡片 */}
+        {/*  Review Plan card */}
           <Link to="/review" className="dashboard-card">
           <img src="/assets/card2.png" alt="Review Plan" />
         </Link>

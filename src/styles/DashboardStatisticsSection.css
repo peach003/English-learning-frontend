@@ -7,25 +7,25 @@
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  overflow: hidden; /* ✅ 解决折线图溢出问题 */
+  overflow: hidden; 
 }
 
-/* ✅ 限制折线图大小，防止溢出 */
+/* Limit the size of the line graph */
 .chart-container {
   width: 100%;
-  max-width: 850px; /* ✅ 限制最大宽度 */
+  max-width: 850px; 
   height: 300px;
   padding: 10px;
-  overflow: hidden; /* ✅ 确保折线图不会超出 */
+  overflow: hidden; 
 }
 
-/* ✅ 让 Canvas 适应容器 */
+/*  Adapting Canvas to a Container */
 .chart-container canvas {
   width: 100% !important;
   height: 100% !important;
 }
 
-/* ✅ 标题样式 */
+
 .statistics-title {
   font-size: 22px;
   font-weight: bold;

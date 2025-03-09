@@ -12,11 +12,11 @@ import {
   Legend,
 } from "chart.js";
 
-// ✅ 注册 Chart.js 组件
+// Registering Chart.js Components
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const DashboardStatisticsSection = () => {
-  // ✅ 折线图数据
+  
  
   const data = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
@@ -24,38 +24,38 @@ const DashboardStatisticsSection = () => {
       {
         label: "Learning Progress",
         data: [2, 4, 6, 8, 10, 14, 18, 20, 25, 30, 35, 40],
-        borderColor: "#6366f1", // ✅ 线条颜色
-        backgroundColor: "rgba(99, 102, 241, 0.2)", // ✅ 填充颜色
+        borderColor: "#6366f1", 
+        backgroundColor: "rgba(99, 102, 241, 0.2)", 
         borderWidth: 2,
         pointRadius: 4,
         pointBackgroundColor: "#6366f1",
-        tension: 0.3, // ✅ 让折线更平滑
+        tension: 0.3, // 
       },
     ],
   };
 
-  // ✅ 折线图配置选项
+  // Line Chart Configuration Options
   const options = {
     responsive: true,
     plugins: {
       legend: {
-        display: false, // ✅ 隐藏图例
+        display: false, 
       },
       tooltip: {
-        enabled: true, // ✅ 显示悬停提示
+        enabled: true, 
       },
     },
     scales: {
       x: {
         grid: {
-          display: false, // ✅ 隐藏 x 轴网格线
+          display: false, 
         },
       },
       y: {
         grid: {
-          color: "#ddd", // ✅ 设置 y 轴网格线颜色
+          color: "#ddd", 
         },
-        beginAtZero: true, // ✅ 从 0 开始
+        beginAtZero: true, 
       },
     },
   };

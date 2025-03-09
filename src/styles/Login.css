@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1000px; /* ✅ 固定宽度，与注册页一致 */
-  height: 650px; /* ✅ 固定高度 */
+  width: 1000px; 
+  height: 650px; 
   background-color: 00000;
   margin: 50px auto;
   border-radius: 20px;
@@ -19,8 +19,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 600px; /* ✅ 确保与主页结构一致 */
-    margin-top: -100px; /* ✅ 避免与 Header 重叠 */
+    min-height: 600px; 
+    margin-top: -100px; 
   }
   
   .login-content {
@@ -69,11 +69,10 @@
   
   .illustration-container {
     position: absolute;
-    top: 150px; /* ✅ 控制图片与导航栏的距离 */
+    top: 150px; 
     left: 15%;
     transform: translateX(-50%);
     width: 180px; 
-    /* ✅ 控制图片大小 */
     z-index: 150;
   }
   

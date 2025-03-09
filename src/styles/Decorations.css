@@ -4,25 +4,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: visible; /* 允许内容超出边界 */
+    overflow: visible; 
   }
   
-  /* 运动器材（放在白色方框和紫色背景的交界处，并允许部分超出） */
+  /* sports facility picture */
   .top-decoration {
     position: absolute;
-    top: -250px; /* 让它比白色方框更高，部分超出 */
+    top: -250px; 
     left: 10%;
     transform: translateX(-50%);
-    z-index: 150; /* 确保它在白色方框和背景的交界处 */
+    z-index: 150; 
   }
   
   .top-decor-img {
-    width: 400px; /* 调整大小 */
+    width: 400px; 
     height: auto;
-    overflow: visible; /* 确保超出的部分可见 */
+    overflow: visible; 
   }
   
-  /* 紫色圆点（dots-pattern.png） */
+  /* dots-pattern.png */
   .dots-pattern {
     position: absolute;
     top: 50%;
@@ -33,11 +33,11 @@
   }
   
   .dots-img {
-    width: 600px; /* 调整大小 */
+    width: 600px; 
     height: 600px;
   }
   
-  /* 让笔记本电脑在左侧 */
+  
   .laptop-container {
     display: flex;
     align-items: center;
@@ -49,7 +49,7 @@
     height: auto;
   }
   
-  /* 纸张（适当放大并调整位置） */
+  
   .paper-container {
     position: absolute;
     top: -40px;

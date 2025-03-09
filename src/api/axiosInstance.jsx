@@ -1,23 +1,23 @@
 import axios from "axios";
 
-// ✅ 创建 axios 实例
+// Create an axios instance
 const api = axios.create({
-    baseURL: "http://localhost:5000/api", // ✅ 修改为你的 .NET API 地址
+    baseURL: "http://localhost:5000/api", //  .NET API address
     headers: {
         "Content-Type": "application/json",
     },
 });
 
-// ✅ 在请求拦截器中自动添加 JWT Token
+// Automatically adding a JWT Token to a request interceptor
 api.interceptors.request.use((config) => {
-    const token = localStorage.getItem("token"); // ✅ 从 localStorage 获取 JWT Token
+    const token = localStorage.getItem("token"); //  Get JWT tokens from localStorage
     if (token) {
         config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
 }, (error) => Promise.reject(error));
 
-// ✅ 处理 API 响应错误（可选）
+//  Handling API Response Errors
 api.interceptors.response.use(
     (response) => response,
     (error) => {

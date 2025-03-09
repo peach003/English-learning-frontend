@@ -7,7 +7,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <div className="dashboard-background"></div>
-      <DashboardSidebar /> {/* ✅ 侧边栏内包含 `DashboardUserInfo.jsx` */}
+      <DashboardSidebar /> 
       <DashboardMainContent />
     </div>
   );

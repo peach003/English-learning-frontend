@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
         if (token) {
             try {
                 const decoded = jwtDecode(token);
-                console.log("Decoded JWT:", decoded); // ✅ 调试 JWT 是否正确解析
+                console.log("Decoded JWT:", decoded); // Debugging JWT for correct parsing
 
                 setUser({
                     fullName: decoded.fullName || decoded.FullName || "Anonymous",
@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     useEffect(() => {
-        console.log("AuthContext Updated user:", user); // ✅ 确保 setUser() 触发更新
+        console.log("AuthContext Updated user:", user); // Ensure that setUser() triggers the update
     }, [user]);
 
     return (

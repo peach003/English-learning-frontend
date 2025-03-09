@@ -1,31 +1,30 @@
-/* 复习页面整体布局 */
+/* Review the overall layout of the page */
 .dictionary-main-content {
   display: flex;
-  flex-direction: column; /* ✅ 让标题独占一行 */
+  flex-direction: column; 
   align-items: center;
   width: 100%;
 }
 
-/* 标题 */
 .review-category-title {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 20px; /* ✅ 给标题留出空间 */
+  margin-bottom: 20px; 
   text-align: center;
   width: 100%;
 }
 
-/* ✅ 让单词列表和释义框左右排列 */
+/* Make word lists and paraphrase boxes left-right aligned */
 .dictionary-layout {
   display: flex;
-  flex-direction: row; /* ✅ 让单词列表和释义框左右排列 */
+  flex-direction: row; 
   align-items: flex-start;
   justify-content: center;
-  gap: 30px; /* ✅ 控制两侧间距 */
+  gap: 30px; 
   width: 100%;
 }
 
-/* ✅ 左侧单词列表 */
+/* Left Word List*/
 .word-list-section {
   flex: 1;
   max-width: 300px;
@@ -34,7 +33,7 @@
   text-align: center;
 }
 
-/* ✅ 单词按钮 */
+
 .word-button {
   width: 100%;
   text-align: center;
@@ -54,7 +53,7 @@
   font-weight: bold;
 }
 
-/* ✅ 右侧释义部分 */
+/* Right side interpretation section*/
 .word-meaning-section {
   flex: 1;
   max-width: 400px;

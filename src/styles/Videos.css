@@ -1,4 +1,4 @@
-/* ✅ 视频学习页面 */
+/* Audio Learning Page */
 .videos-container {
   width: 90%;
   max-width: 800px;
@@ -11,7 +11,7 @@
   animation: fadeIn 0.5s ease-in-out;
 }
 
-/* ✅ 标题样式 */
+
 .videos-title {
   font-size: 24px;
   font-weight: bold;
@@ -19,7 +19,7 @@
   margin-bottom: 20px;
 }
 
-/* ✅ 音频播放器样式 */
+
 .audio-player {
   margin: 20px auto;
 }
@@ -29,7 +29,7 @@
   max-width: 600px;
 }
 
-/* ✅ 字幕区域 */
+
 .subtitle-container {
   background-color: #f9f9f9;
   border-radius: 10px;
@@ -39,24 +39,24 @@
   color: #333;
   line-height: 1.6;
   text-align: left;
-  max-height: 200px; /* ✅ 限制高度，避免过长 */
-  overflow-y: auto; /* ✅ 添加滚动条 */
+  max-height: 200px; 
+  overflow-y: auto; 
   border: 1px solid #ddd;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
-  white-space: normal; /* ✅ 允许文本自动换行 */
-  word-wrap: break-word; /* ✅ 让超长单词换行 */
-  overflow-wrap: break-word; /* ✅ 兼容不同浏览器 */
+  white-space: normal; 
+  word-wrap: break-word; 
+  overflow-wrap: break-word; 
 }
 
-/* ✅ 让字幕单词可点击，并不会影响换行 */
+/* Making subtitle words clickable doesn't affect line breaks */
 .word {
   cursor: pointer;
   font-weight: bold;
   color: #007bff;
   transition: color 0.3s ease, background 0.3s ease;
-  display: inline; /* ✅ 让单词正常流动，不强制换行 */
+  display: inline; 
 }
 
 .word:hover {
@@ -67,7 +67,7 @@
   padding: 2px 5px;
 }
 
-/* ✅ 适配小屏幕，确保字幕不会溢出 */
+
 @media (max-width: 768px) {
   .subtitle-container {
       font-size: 16px;
@@ -75,7 +75,7 @@
   }
 }
 
-/* ✅ 单词释义区域 */
+/* Word Interpretation Area */
 .word-definition-container {
   background-color: #f4f4f4;
   border-radius: 10px;
@@ -88,7 +88,7 @@
   text-align: left;
 }
 
-/* ✅ 个人单词本 */
+/* personal word book */
 .word-book {
   margin-top: 20px;
   padding: 15px;
@@ -125,7 +125,7 @@
   background: #ffe68a;
 }
 
-/* ✅ 删除单词按钮 */
+
 .word-book button {
   background-color: #ff5c5c;
   color: white;
@@ -141,7 +141,7 @@
   transform: scale(1.05);
 }
 
-/* ✅ 让字幕滚动到底部 */
+
 .subtitle-container {
   display: flex;
   flex-direction: column;
@@ -150,13 +150,13 @@
   max-height: 200px;
 }
 
-/* ✅ 动画效果 */
+/*  animation effect */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ✅ 适配小屏幕 */
+/*  Adaptation to small screens */
 @media (max-width: 768px) {
   .videos-container {
       width: 95%;
@@ -181,3 +181,4 @@
       padding: 3px 7px;
   }
 }
+

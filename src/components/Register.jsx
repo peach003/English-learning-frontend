@@ -9,8 +9,8 @@ function Register() {
         password: "",
         confirmPassword: "",
     });
-    const [message, setMessage] = useState(""); // ✅ 显示注册成功或错误信息
-    const navigate = useNavigate(); // ✅ 获取导航函数
+    const [message, setMessage] = useState(""); 
+    const navigate = useNavigate(); 
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -40,7 +40,7 @@ function Register() {
             if (response.ok) {
                 setMessage("Registration successful! Redirecting to login...");
                 setTimeout(() => {
-                    navigate("/login"); // ✅ 3秒后跳转到登录界面
+                    navigate("/login"); 
                 }, 3000);
             } else {
                 setMessage(data.error || "Registration failed");

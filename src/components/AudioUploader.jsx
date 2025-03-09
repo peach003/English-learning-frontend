@@ -11,12 +11,12 @@ const AudioUploader = ({ onTranscriptGenerated }) => {
 
     setLoading(true);
     const formData = new FormData();
-    formData.append("audio", file); // ✅ 确保字段名称和后端匹配
+    formData.append("audio", file); 
 
     try {
       const response = await axios.post("http://localhost:5000/api/audio/transcribe", formData);
       setTranscript(response.data.transcript);
-      onTranscriptGenerated(response.data.transcript); // 传递到 `Videos.jsx`
+      onTranscriptGenerated(response.data.transcript); //Pass to `Videos.jsx`
     } catch (error) {
       console.error("Error:", error);
       setTranscript("Failed to transcribe audio.");

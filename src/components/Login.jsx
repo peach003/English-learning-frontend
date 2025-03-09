@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ 用于重定向
-import "../styles/Login.css"; // ✅ 引入样式
+import { useNavigate } from "react-router-dom"; 
+import "../styles/Login.css"; 
 
 function Login() {
     const [formData, setFormData] = useState({
         email: "",
         password: "",
     });
-    const [message, setMessage] = useState(""); // ✅ 登录成功/失败提示信息
-    const navigate = useNavigate(); // ✅ 用于跳转页面
+    const [message, setMessage] = useState(""); 
+    const navigate = useNavigate(); 
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -27,9 +27,9 @@ function Login() {
             const data = await response.json();
 
             if (response.ok) {
-                localStorage.setItem("token", data.token); // ✅ 存储 JWT Token
+                localStorage.setItem("token", data.token); 
                 setMessage("Login successful!");
-                navigate("/Dashboard"); // ✅ 登录后跳转到个人主页
+                navigate("/Dashboard"); 
             } else {
                 setMessage(data.error || "Invalid email or password");
             }

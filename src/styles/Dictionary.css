@@ -1,66 +1,66 @@
-/* 🔹 词典页面整体布局 */
+/*  Overall layout of the dictionary page */
 .dictionary-main-content {
   display: flex;
-  flex-direction: column; /* ✅ 让标题独占一行 */
+  flex-direction: column; 
   align-items: center;
   width: 100%;
 }
 
-/* 🔹 标题 */
+/*  Title */
 .dictionary-title {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 20px; /* ✅ 给标题留出空间 */
+  margin-bottom: 20px; 
   text-align: center;
   width: 100%;
 }
 
-/* 🔹 让单词列表和释义框左右排列 */
+/* Make word lists and paraphrase boxes left-right aligned */
 .dictionary-layout {
   display: flex;
-  flex-direction: row; /* ✅ 左右排列 */
+  flex-direction: row; 
   align-items: flex-start;
   justify-content: center;
-  gap: 30px; /* ✅ 控制两侧间距 */
+  gap: 30px; 
   width: 100%;
 }
 
-/* 🔹 左侧 - 单词列表 */
+/* Left Side - Word List */
 .dictionary-word-list {
   flex: 1;
-  max-width: 350px; /* ✅ 增加单词列表的宽度 */
+  max-width: 350px; 
   padding: 20px;
   border-right: 1px solid #e0e0e0;
   text-align: center;
 }
 
-/* 🔹 单词按钮 */
+
 .dictionary-word-button {
-  display: block; /* ✅ 确保按钮不会被挤压 */
-  width: auto; /* ✅ 让按钮宽度适应单词 */
+  display: block; 
+  width: auto; 
   text-align: center;
   background: none;
   border: none;
-  padding: 15px; /* ✅ 增加按钮的点击区域 */
+  padding: 15px; 
   cursor: pointer;
   transition: background-color 0.3s ease;
 
-  font-size: 45px !important; /* ✅ 强制字体变大 */
+  font-size: 45px !important; 
   font-weight: bold;
 }
 
-/* 🔹 单词按钮悬停效果 */
+
 .dictionary-word-button:hover {
   background-color: #f0f0f0;
 }
 
-/* 🔹 选中的单词按钮 */
+
 .dictionary-word-button.selected {
   background-color: #e0e0e0;
   font-weight: bold;
 }
 
-/* 🔹 右侧 - 释义部分 */
+/*  Right side - interpretation section */
 .dictionary-meaning-section {
   flex: 1;
   max-width: 400px;
@@ -68,18 +68,18 @@
   text-align: left;
   
   display: flex; 
-  flex-direction: column; /* ✅ 让释义框紧密排列 */
+  flex-direction: column; 
   align-items: flex-start;
 }
 
 
 
-/* 🔹 释义框 */
+/*  efinition frame*/
 .dictionary-meaning-content {
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 8px;
   width: 100%;
   min-height: 250px;
-  overflow-y: auto; /* ✅ 允许滚动，防止溢出 */
+  overflow-y: auto; 
 }

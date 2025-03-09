@@ -1,43 +1,43 @@
 .dashboard-cards-userinfo {
   display: flex;
-  align-items: center; /* ✅ 确保对齐 */
-  justify-content: space-between; /* ✅ 让 Cards 和 UserInfo 左右分布 */
-  gap: 30px; /* ✅ 控制间距 */
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 30px; 
   width: 100%;
 }
 
 .dashboard-learning-section {
-  flex: 3; /* ✅ 让 Cards 部分占据较大空间 */
+  flex: 3; 
 }
 
 .dashboard-user-info {
-  flex: 1; /* ✅ 让 User Info 占据较小空间 */
+  flex: 1; 
 }
 .dashboard-main-content {
   display: flex;
   flex-direction: column;
-  padding: 20px 30px; /* ✅ 让 Cards 和 Statistics 有边距 */
+  padding: 20px 30px; 
   width: 100%;
 }
 
 .dashboard-cards-userinfo {
   display: flex;
   align-items: flex-start;
-  gap: 40px; /* ✅ 让 Cards 和 UserInfo 有间距 */
+  gap: 40px; 
   width: 100%;
 }
 
 .dashboard-learning-section {
   flex: 3;
-  padding-left: 20px; /* ✅ 左边空出一定间距 */
+  padding-left: 20px; 
 }
 
 .dashboard-user-info {
   flex: 1;
-  padding-right: 20px; /* ✅ 右边空出一定间距 */
+  padding-right: 20px; 
 }
 
 .dashboard-statistics-section {
-  margin-top: 40px; /* ✅ 让 Statistics 和 Cards 保持间距 */
+  margin-top: 40px; 
   padding: 20px;
 }

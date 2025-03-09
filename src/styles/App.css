@@ -1,6 +1,6 @@
-/* 设置整个页面的背景色 */
+
 body {
-    background-color: #f0e8ff; /* 设置淡紫色背景 */
+    background-color: #f0e8ff; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,6 +8,6 @@ body {
     margin: 0;
   }
   
-  /* 让 app 组件居中显示 */
+ 
  
  

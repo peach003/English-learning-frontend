@@ -6,7 +6,7 @@ import useOxfordDictionary from "../hooks/useOxfordDictionary";
 
 const ReviewPage = () => {
   const { category } = useParams();
-  const validCategory = category || "3-days"; // ✅ 防止 category 为空
+  const validCategory = category || "3-days"; 
 
   const [words, setWords] = useState([]);
   const [selectedWord, setSelectedWord] = useState(null);
@@ -14,7 +14,7 @@ const ReviewPage = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (!validCategory) return; // 防止 undefined 报错
+    if (!validCategory) return; 
 
     const categoryMapping = {
       "3-days": "3Days",
@@ -41,7 +41,7 @@ const ReviewPage = () => {
 
         if (categoryMapping[validCategory] in data) {
           console.log("🟢 Filtered Words Found:", data[categoryMapping[validCategory]]);
-          setWords([...data[categoryMapping[validCategory]]]); // ✅ 确保 React 识别数组变化
+          setWords([...data[categoryMapping[validCategory]]]); // Ensure React recognises array changes
         } else {
           console.warn("🔴 Category Not Found in API Response:", categoryMapping[validCategory]);
           setWords([]);
@@ -53,7 +53,7 @@ const ReviewPage = () => {
         setError("Failed to fetch words.");
         setLoading(false);
       });
-  }, [validCategory]); // ✅ 监听 validCategory 变化
+  }, [validCategory]); // Listen for validCategory changes
 
   const { definition, translation, loading: dictLoading } = useOxfordDictionary(
     selectedWord?.word,
@@ -66,7 +66,7 @@ const ReviewPage = () => {
       <DashboardSidebar />
   
       <div className="dictionary-main-content">
-        {/* ✅ 标题独占一行 */}
+        {/* Title on one line */}
         <h2 className="review-category-title">
           {validCategory === "3-days" && "Words Within 3 Days"}
           {validCategory === "7-days" && "Words Within 7 Days"}
@@ -74,10 +74,10 @@ const ReviewPage = () => {
           {validCategory === "28-days" && "Words Within 28 Days"}
         </h2>
   
-        {/* ✅ 让单词列表和释义框左右排列 */}
+        {/* Make word lists and paraphrase boxes left-right aligned */}
         <div className="dictionary-layout">
           
-          {/* ✅ 左侧 - 单词列表 */}
+          {/* Left Side - Word List */}
           <div className="word-list-section">
             {loading ? (
               <p>Loading words...</p>
@@ -107,7 +107,7 @@ const ReviewPage = () => {
             )}
           </div>
   
-          {/* ✅ 右侧 - 释义框 */}
+          {/*  Right side - Interpretation box */}
           <div className="word-meaning-section">
             
             <div className="word-meaning-content">
@@ -125,7 +125,7 @@ const ReviewPage = () => {
                   </div>
   
                   <div className="translation-section">
-                    <h4>Translation (中文)</h4>
+                    <h4>Translation (Chinese)</h4>
                     {dictLoading ? (
                       <p className="loading">Translating...</p>
                     ) : (

@@ -20,10 +20,10 @@ const Review = () => {
       <DashboardSidebar />
 
       <div className="review-main-content">
-        {/* 标题部分 */}
+        {/* Title section */}
         <h2 className="review-title">Pick your notebook</h2>
 
-        {/* 按钮部分：横向排列 */}
+        {/* Button section */}
         <div className="category-container">
           {categories.map((category) => (
             <div

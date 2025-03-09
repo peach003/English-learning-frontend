@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const APP_ID = "3a347ce2"; // 你的 Oxford API ID
-const APP_KEY = "3b75dbee2ab018dd3dd1c9814e1bc81f"; // 你的 Oxford API Key
+const APP_ID = "3a347ce2"; 
+const APP_KEY = "3b75dbee2ab018dd3dd1c9814e1bc81f"; 
 const BASE_URL = "https://od-api-sandbox.oxforddictionaries.com/api/v2";
-const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"; // 临时 CORS 代理
+const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"; 
 
 const useOxfordDictionary = (word, sourceLang = "en", targetLang = "zh") => {
   const [definition, setDefinition] = useState(null);
@@ -21,7 +21,7 @@ const useOxfordDictionary = (word, sourceLang = "en", targetLang = "zh") => {
       setError(null);
 
       try {
-        // 获取单词定义
+        // Get word definitions
         const definitionResponse = await axios.get(`${CORS_PROXY}${BASE_URL}/entries/en-us/${lowerCaseWord}`, {
           headers: {
             "app_id": APP_ID,
@@ -31,10 +31,10 @@ const useOxfordDictionary = (word, sourceLang = "en", targetLang = "zh") => {
 
         const fetchedDefinition =
           definitionResponse.data.results[0]?.lexicalEntries[0]?.entries[0]?.senses[0]?.definitions[0] ||
-          "未找到定义";
+          "Definition not found";
         setDefinition(fetchedDefinition);
 
-        // 获取单词翻译
+        
         const translationResponse = await axios.get(`${CORS_PROXY}${BASE_URL}/translations/en/zh/${lowerCaseWord}`, {
           headers: {
             "app_id": APP_ID,
@@ -44,10 +44,10 @@ const useOxfordDictionary = (word, sourceLang = "en", targetLang = "zh") => {
 
         const fetchedTranslation =
           translationResponse.data.results[0]?.lexicalEntries[0]?.entries[0]?.senses[0]?.translations[0]?.text ||
-          "未找到翻译";
+          "No translation found";
         setTranslation(fetchedTranslation);
       } catch (err) {
-        setError("获取数据失败，请检查单词拼写或 API 限制");
+        setError("Failed to fetch data, please check word spelling or API restrictions");
       } finally {
         setLoading(false);
       }

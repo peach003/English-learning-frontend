@@ -1,4 +1,4 @@
-/* Review 页面样式 */
+/* Review Page Style */
 .review-main-content {
   flex-grow: 1;
   padding: 20px;
@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-/* 标题：居中对齐 */
+
 .review-title {
   font-size: 24px;
   font-weight: bold;
@@ -16,17 +16,17 @@
   margin-bottom: 20px;
 }
 
-/* 容器：让按钮横向排列 */
+/* Container: make buttons horizontally aligned */
 .category-container {
   display: flex;
-  justify-content: center; /* 居中对齐 */
-  gap: 20px; /* 按钮间距 */
-  flex-wrap: wrap; /* 适配小屏幕 */
+  justify-content: center; 
+  gap: 20px; 
+  flex-wrap: wrap; 
 }
 
-/* 每个按钮的样式 */
+
 .category-card {
-  width: 120px; /* 控制大小 */
+  width: 120px; 
   text-align: center;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
@@ -36,13 +36,12 @@
   transform: scale(1.1);
 }
 
-/* 按钮图片样式 */
+
 .category-image {
-  width: 100px; /* 图片大小 */
+  width: 100px; 
   height: auto;
 }
 
-/* 按钮文字样式 */
 .category-name {
   font-size: 14px;
   font-weight: bold;

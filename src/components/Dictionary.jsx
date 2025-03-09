@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DashboardSidebar from "./DashboardSidebar";
 import "../styles/Dictionary.css";
-import useOxfordDictionary from "../hooks/useOxfordDictionary"; // 统一的 Hook
+import useOxfordDictionary from "../hooks/useOxfordDictionary"; 
 
 const Dictionary = ({ userId }) => {
-  const [words, setWords] = useState([]); // 存储 API 获取的单词
+  const [words, setWords] = useState([]); // Storing words fetched by the API
   const [selectedWord, setSelectedWord] = useState(null);
   const { definition, translation, loading } = useOxfordDictionary(selectedWord?.word, "en", "zh");
 
-  // 📌 通过 API 获取用户的单词
+  // Get the user's word via API
   useEffect(() => {
     const fetchWords = async () => {
       try {
@@ -35,7 +35,7 @@ const Dictionary = ({ userId }) => {
         </div>
 
         <div className="dictionary-layout">
-          {/* 左侧：单词列表 */}
+          {/* Left side: Word list */}
           <div className="word-list-section">
             <table className="word-list-table">
               <tbody>
@@ -59,7 +59,7 @@ const Dictionary = ({ userId }) => {
             </table>
           </div>
 
-          {/* 右侧：单词详情 */}
+          {/* Right side: word details*/}
           <div className="word-meaning-section">
             <div className="word-meaning-content">
               {selectedWord ? (
@@ -72,7 +72,7 @@ const Dictionary = ({ userId }) => {
                   </div>
 
                   <div className="translation-section">
-                    <h4>Translation (中文)</h4>
+                    <h4>Translation (Chinese)</h4>
                     {loading ? <p className="loading">Translating...</p> : <p>{translation || "No translation available"}</p>}
                   </div>
                 </div>
@@ -87,8 +87,8 @@ const Dictionary = ({ userId }) => {
   );
 };
 
-// ✅ 传递 userId 来获取对应用户的单词
+//  Pass userId to get the corresponding user's word
 export default function DefaultDictionary() {
-  const userId = 1; // 假设的用户 ID，可以从登录信息获取
+  const userId = 1; 
   return <Dictionary userId={userId} />;
 }

@@ -4,23 +4,23 @@ import api from "../api/axiosInstance";
 import { AuthContext } from "../context/AuthContext";
 
 const DashboardUserInfo = () => {
-    const { user } = useContext(AuthContext) || {}; // ✅ 避免 `undefined` 错误
+    const { user } = useContext(AuthContext) || {}; //  Avoid `undefined` errors
     const [profile, setProfile] = useState(null);
 
     useEffect(() => {
-        console.log("AuthContext user:", user); // ✅ 调试 user 是否正确获取
+        console.log("AuthContext user:", user); // Debug whether user is fetched correctly
         
-        if (user?.email) {  // ✅ 确保 user 不是空值
+        if (user?.email) {  // Make sure user is not null
             api.get("/auth/profile")
                 .then((response) => {
-                    console.log("Profile API Response:", response.data); // ✅ 调试 API 返回的用户信息
+                    console.log("Profile API Response:", response.data); // User information returned by the debug API
                     setProfile(response.data);
                 })
                 .catch((error) => console.error("Error fetching profile:", error));
         }
     }, [user]);
 
-    const displayName = profile?.fullName || user?.fullName || "User"; // ✅ 统一使用 displayName 变量
+    const displayName = profile?.fullName || user?.fullName || "User"; // Uniform use of the displayName variable
 
     return (
         <div className="dashboard-user-info">

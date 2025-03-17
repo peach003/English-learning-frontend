@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Review.css"; 
 
 const categories = [
-  { id: "3-days", image: "/assets/1.png", name: "New Words" }, 
-  { id: "7-days", image: "/assets/2.png", name: "Beginner Review" },
-  { id: "14-days", image: "/assets/3.png", name: "Intermediate Review" },
-  { id: "28-days", image: "/assets/1.png", name: "Advanced Review" }, 
-  { id: "recommended", image: "/assets/2.png", name: "Recommended Words" },
+  { id: "3Days", image: "/assets/1.png", name: "New Words" }, 
+  { id: "7Days", image: "/assets/2.png", name: "Beginner Review" },
+  { id: "14Days", image: "/assets/3.png", name: "Intermediate Review" },
+  { id: "28Days", image: "/assets/1.png", name: "Advanced Review" }, 
+  { id: "recommended", image: "/assets/2.png", name: "Recommended Words" }
 ];
 
 const Review = () => {
@@ -32,7 +32,7 @@ const Review = () => {
               onClick={() => navigate(`/review/${category.id}`)}
             >
               <img src={category.image} alt={category.name} className="category-image" />
-              <p className="category-name">{category.name}</p>
+              <p className={category.id}>{category.name}</p>
             </div>
           ))}
         </div>

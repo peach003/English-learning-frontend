@@ -5,8 +5,9 @@ import "../styles/ReviewPage.css";
 import useOxfordDictionary from "../hooks/useOxfordDictionary";
 
 const ReviewPage = () => {
-  const { category } = useParams();
-  const validCategory = category || "3-days"; 
+  const { category } = useParams(); // Get category from URL
+
+  console.log("🟢 Current Category:", category);
 
   const [words, setWords] = useState([]);
   const [selectedWord, setSelectedWord] = useState(null);
@@ -14,70 +15,74 @@ const ReviewPage = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (!validCategory) return; 
+    if (!category) return;
 
-    const categoryMapping = {
-      "3-days": "3Days",
-      "7-days": "7Days",
-      "14-days": "14Days",
-      "28-days": "28Days",
-    };
+    const apiEndpoint =
+      category === "recommended"
+        ? "http://localhost:5001/recommend?pastWords=apple,banana&numWords=5"
+        : "http://localhost:5000/api/reviewplan/1";
 
-    console.log("🟢 Final Category Used:", validCategory);
-    console.log("🔵 Checking for category:", categoryMapping[validCategory]);
+    console.log("🟢 API Request:", apiEndpoint);
 
     setLoading(true);
     setError("");
 
-    fetch(`http://localhost:5000/api/reviewplan/1`)
+    fetch(apiEndpoint)
       .then((response) => {
         if (!response.ok) {
-          throw new Error("API response was not OK");
+          throw new Error(`API Error: ${response.status}`);
         }
         return response.json();
       })
       .then((data) => {
-        console.log("🟢 Full API Response:", JSON.stringify(data, null, 2));
+        console.log("🟢 API Response:", data);
 
-        if (categoryMapping[validCategory] in data) {
-          console.log("🟢 Filtered Words Found:", data[categoryMapping[validCategory]]);
-          setWords([...data[categoryMapping[validCategory]]]); // Ensure React recognises array changes
+        if (category === "recommended") {
+          // ✅ FIX: Ensure we correctly read "Recommended" instead of "recommended_words"
+          if (data.Recommended && Array.isArray(data.Recommended)) {
+            setWords(data.Recommended.map((item) => item.word) || []);
+          } else {
+            console.warn("🔴 No 'Recommended' data found in API response.");
+            setWords([]);
+          }
+        } else if (category in data) {
+          setWords(data[category].map((item) => item.word) || []);
         } else {
-          console.warn("🔴 Category Not Found in API Response:", categoryMapping[validCategory]);
+          console.warn("🔴 Category data not found:", category);
           setWords([]);
         }
-        setLoading(false);
       })
       .catch((error) => {
-        console.error("🔴 Error fetching words:", error);
+        console.error("🔴 API Fetch Error:", error);
         setError("Failed to fetch words.");
+      })
+      .finally(() => {
         setLoading(false);
       });
-  }, [validCategory]); // Listen for validCategory changes
+  }, [category]);
 
   const { definition, translation, loading: dictLoading } = useOxfordDictionary(
-    selectedWord?.word,
+    selectedWord,
     "en",
     "zh"
   );
 
   return (
     <div className="dashboard-container">
+      <div className="dashboard-background"></div>
       <DashboardSidebar />
-  
+
       <div className="dictionary-main-content">
-        {/* Title on one line */}
         <h2 className="review-category-title">
-          {validCategory === "3-days" && "Words Within 3 Days"}
-          {validCategory === "7-days" && "Words Within 7 Days"}
-          {validCategory === "14-days" && "Words Within 14 Days"}
-          {validCategory === "28-days" && "Words Within 28 Days"}
+          {category === "3Days" && "Words Within 3 Days"}
+          {category === "7Days" && "Words Within 7 Days"}
+          {category === "14Days" && "Words Within 14 Days"}
+          {category === "28Days" && "Words Within 28 Days"}
+          {category === "recommended" && "Recommended Words"}
         </h2>
-  
-        {/* Make word lists and paraphrase boxes left-right aligned */}
+
         <div className="dictionary-layout">
-          
-          {/* Left Side - Word List */}
+          {/* Left: Word List */}
           <div className="word-list-section">
             {loading ? (
               <p>Loading words...</p>
@@ -86,16 +91,16 @@ const ReviewPage = () => {
             ) : words.length > 0 ? (
               <table className="word-list-table">
                 <tbody>
-                  {words.map((item) => (
-                    <tr key={item.id}>
+                  {words.map((word, index) => (
+                    <tr key={index}>
                       <td>
                         <button
                           className={`word-button ${
-                            selectedWord?.word === item.word ? "selected" : ""
+                            selectedWord === word ? "selected" : ""
                           }`}
-                          onClick={() => setSelectedWord(item)}
+                          onClick={() => setSelectedWord(word)}
                         >
-                          {item.word}
+                          {word}
                         </button>
                       </td>
                     </tr>
@@ -106,15 +111,14 @@ const ReviewPage = () => {
               <p>No words in this category.</p>
             )}
           </div>
-  
-          {/*  Right side - Interpretation box */}
+
+          {/* Right: Word Details */}
           <div className="word-meaning-section">
-            
             <div className="word-meaning-content">
               {selectedWord ? (
                 <div className="selected-word-details">
-                  <h3>{selectedWord.word}</h3>
-  
+                  <h3>{selectedWord}</h3>
+
                   <div className="definition-section">
                     <h4>Definition</h4>
                     {dictLoading ? (
@@ -123,7 +127,7 @@ const ReviewPage = () => {
                       <p>{definition || "No definition available"}</p>
                     )}
                   </div>
-  
+
                   <div className="translation-section">
                     <h4>Translation (Chinese)</h4>
                     {dictLoading ? (
@@ -142,6 +146,6 @@ const ReviewPage = () => {
       </div>
     </div>
   );
-  
-}
+};
+
 export default ReviewPage;

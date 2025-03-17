@@ -5,7 +5,6 @@ import { jwtDecode } from "jwt-decode";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    console.log(1);
     const [user, setUser] = useState(null);
 
     useEffect(() => {
@@ -18,9 +17,10 @@ export const AuthProvider = ({ children }) => {
                 console.log("Decoded JWT:", decoded); // Debugging JWT for correct parsing
 
                 setUser({
-                    fullName: decoded.fullName || decoded.FullName || "Anonymous",
+                    fullName: decoded.FullName || "Anonymous",
                     email: decoded.email || "",
                 });
+                console.log("Seted Users");
 
             } catch (error) {
                 console.error("Invalid token:", error);

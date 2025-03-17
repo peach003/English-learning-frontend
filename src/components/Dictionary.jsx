@@ -2,26 +2,34 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DashboardSidebar from "./DashboardSidebar";
 import "../styles/Dictionary.css";
-import useOxfordDictionary from "../hooks/useOxfordDictionary"; 
+import useOxfordDictionary from "../hooks/useOxfordDictionary";
 
 const Dictionary = ({ userId }) => {
-  const [words, setWords] = useState([]); // Storing words fetched by the API
+  const [words, setWords] = useState([]);
   const [selectedWord, setSelectedWord] = useState(null);
   const { definition, translation, loading } = useOxfordDictionary(selectedWord?.word, "en", "zh");
+  
+  const [currentPage, setCurrentPage] = useState(1);
+  const wordsPerPage = 10; 
 
-  // Get the user's word via API
   useEffect(() => {
     const fetchWords = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/api/wordbook/user/${userId}/words`);
+        console.log("API Response:", response.data);
         setWords(response.data);
       } catch (error) {
         console.error("Error fetching words:", error);
       }
     };
-
     fetchWords();
   }, [userId]);
+
+  // 计算分页内容
+  const indexOfLastWord = currentPage * wordsPerPage;
+  const indexOfFirstWord = indexOfLastWord - wordsPerPage;
+  const currentWords = words.slice(indexOfFirstWord, indexOfLastWord);
+  const totalPages = Math.ceil(words.length / wordsPerPage);
 
   return (
     <div className="dashboard-container">
@@ -31,37 +39,43 @@ const Dictionary = ({ userId }) => {
       <div className="dictionary-main-content">
         <div className="dictionary-header">
           <h2 className="dictionary-title">My Dictionary</h2>
-          
         </div>
 
         <div className="dictionary-layout">
-          {/* Left side: Word list */}
-          <div className="word-list-section">
-            <table className="word-list-table">
-              <tbody>
-                {words.length > 0 ? (
-                  words.map((item, index) => (
-                    <tr key={index}>
-                      <td>
-                        <button
-                          className={`word-button ${selectedWord?.word === item.word ? "selected" : ""}`}
-                          onClick={() => setSelectedWord(item)}
-                        >
-                          {item.word}
-                        </button>
-                      </td>
-                    </tr>
-                  ))
-                ) : (
-                  <tr><td>No words found.</td></tr>
-                )}
-              </tbody>
-            </table>
+          {/* 左侧：单词列表 */}
+          <div className="dictionary-word-list">
+            <div className="dictionary-word-container" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              {currentWords.length > 0 ? (
+                currentWords.map((item, index) => (
+                  <button
+                    key={index}
+                    className={`dictionary-word-button ${selectedWord?.word === item.word ? "selected" : ""}`}
+                    onClick={() => setSelectedWord(item)}
+                  >
+                    {item.word}
+                  </button>
+                ))
+              ) : (
+                <p>No words found.</p>
+              )}
+            </div>
+            {/* 分页按钮 */}
+            <div className="dictionary-pagination">
+              {Array.from({ length: totalPages }, (_, i) => (
+                <button
+                  key={i}
+                  className={currentPage === i + 1 ? "active" : ""}
+                  onClick={() => setCurrentPage(i + 1)}
+                >
+                  {i + 1}
+                </button>
+              ))}
+            </div>
           </div>
 
-          {/* Right side: word details*/}
-          <div className="word-meaning-section">
-            <div className="word-meaning-content">
+          {/* 右侧：单词详情 */}
+          <div className="dictionary-meaning-section">
+            <div className="dictionary-meaning-content">
               {selectedWord ? (
                 <div className="selected-word-details">
                   <h3>{selectedWord.word}</h3>
@@ -87,8 +101,7 @@ const Dictionary = ({ userId }) => {
   );
 };
 
-//  Pass userId to get the corresponding user's word
 export default function DefaultDictionary() {
-  const userId = 1; 
+  const userId = 1;
   return <Dictionary userId={userId} />;
 }

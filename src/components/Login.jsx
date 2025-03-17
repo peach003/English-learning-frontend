@@ -28,6 +28,7 @@ function Login() {
 
             if (response.ok) {
                 localStorage.setItem("token", data.token); 
+
                 setMessage("Login successful!");
                 navigate("/Dashboard"); 
             } else {

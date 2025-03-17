@@ -1,7 +1,7 @@
 /*  Overall layout of the dictionary page */
 .dictionary-main-content {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
   width: 100%;
 }
@@ -10,7 +10,7 @@
 .dictionary-title {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   text-align: center;
   width: 100%;
 }
@@ -18,68 +18,101 @@
 /* Make word lists and paraphrase boxes left-right aligned */
 .dictionary-layout {
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  gap: 30px; 
+  gap: 20px; /* 调整间距，确保释义部分完整显示 */
   width: 100%;
 }
 
 /* Left Side - Word List */
 .dictionary-word-list {
   flex: 1;
-  max-width: 350px; 
-  padding: 20px;
+  width: 400px; /* 调整宽度以适应页面 */
+  padding: 10px;
   border-right: 1px solid #e0e0e0;
   text-align: center;
+  overflow: hidden;
+  position: relative;
+  height:600px;
 }
 
+.dictionary-word-container {
+  display: flex;
+  flex-direction: column; /* 调整为纵向排列 */
+  align-items: center;
+  gap: 8px;
+  
+  overflow-y: auto;
+  width: 100%;
+  height:550px;
+}
 
 .dictionary-word-button {
-  display: block; 
-  width: auto; 
+  display: block;
+  width: 100%;
   text-align: center;
   background: none;
   border: none;
-  padding: 15px; 
+  padding: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-
-  font-size: 45px !important; 
+  font-size: 18px !important; /* 调整字体大小 */
   font-weight: bold;
 }
-
 
 .dictionary-word-button:hover {
   background-color: #f0f0f0;
 }
-
 
 .dictionary-word-button.selected {
   background-color: #e0e0e0;
   font-weight: bold;
 }
 
-/*  Right side - interpretation section */
+/* 分页按钮 */
+.dictionary-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dictionary-pagination button {
+  padding: 10px 15px;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #ddd;
+  transition: background-color 0.3s;
+}
+
+.dictionary-pagination button:hover {
+  background-color: #bbb;
+}
+
+.dictionary-pagination button.active {
+  background-color: #999;
+  color: white;
+}
+
+/* 右侧 - 释义部分 */
 .dictionary-meaning-section {
   flex: 1;
-  max-width: 400px;
+  width: 440px; 
   padding: 20px;
   text-align: left;
-  
-  display: flex; 
-  flex-direction: column; 
+  display: flex;
+  flex-direction: column;
   align-items: flex-start;
 }
 
-
-
-/*  efinition frame*/
+/* 释义框 */
 .dictionary-meaning-content {
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 8px;
   width: 100%;
   min-height: 250px;
-  overflow-y: auto; 
+  overflow-y: auto;
+  width: 440px; 
 }

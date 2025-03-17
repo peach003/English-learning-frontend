@@ -20,14 +20,14 @@ function App() {
           <Route path="/" element={<MainContent />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/review" element={<Review />} />
-          <Route path="/review/:category" element={<ReviewPage />} /> 
-          
-          {/* Protected Route (user must be logged in to access) */}
+          <Route path="/review" element={<PrivateRoute><Review /></PrivateRoute>} /> 
+          <Route path="/review/:category" element={<PrivateRoute><ReviewPage /></PrivateRoute>} /> 
+
+
+          {/* Protected Routes */}
           <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} /> 
           <Route path="/videos" element={<PrivateRoute><Videos /></PrivateRoute>} />
           <Route path="/dictionary" element={<PrivateRoute><Dictionary /></PrivateRoute>} />
-          <Route path="/review" element={<PrivateRoute><Review /></PrivateRoute>} /> 
         </Routes>
       </Router>
     </AuthProvider>
@@ -35,4 +35,6 @@ function App() {
 }
 
 export default App;
+
+
 

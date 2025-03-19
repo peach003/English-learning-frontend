@@ -25,7 +25,7 @@ const Dictionary = ({ userId }) => {
     fetchWords();
   }, [userId]);
 
-  // 计算分页内容
+  // Calculate pagination content
   const indexOfLastWord = currentPage * wordsPerPage;
   const indexOfFirstWord = indexOfLastWord - wordsPerPage;
   const currentWords = words.slice(indexOfFirstWord, indexOfLastWord);
@@ -42,7 +42,7 @@ const Dictionary = ({ userId }) => {
         </div>
 
         <div className="dictionary-layout">
-          {/* 左侧：单词列表 */}
+          {/* Left side: Word list*/}
           <div className="dictionary-word-list">
             <div className="dictionary-word-container" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
               {currentWords.length > 0 ? (
@@ -59,7 +59,7 @@ const Dictionary = ({ userId }) => {
                 <p>No words found.</p>
               )}
             </div>
-            {/* 分页按钮 */}
+            {/* Pagination button*/}
             <div className="dictionary-pagination">
               {Array.from({ length: totalPages }, (_, i) => (
                 <button
@@ -73,7 +73,7 @@ const Dictionary = ({ userId }) => {
             </div>
           </div>
 
-          {/* 右侧：单词详情 */}
+          {/*Right side: Word details*/}
           <div className="dictionary-meaning-section">
             <div className="dictionary-meaning-content">
               {selectedWord ? (

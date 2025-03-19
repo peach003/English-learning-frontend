@@ -21,14 +21,14 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  gap: 20px; /* 调整间距，确保释义部分完整显示 */
+  gap: 20px;
   width: 100%;
 }
 
 /* Left Side - Word List */
 .dictionary-word-list {
   flex: 1;
-  width: 400px; /* 调整宽度以适应页面 */
+  width: 400px; 
   padding: 10px;
   border-right: 1px solid #e0e0e0;
   text-align: center;
@@ -39,7 +39,7 @@
 
 .dictionary-word-container {
   display: flex;
-  flex-direction: column; /* 调整为纵向排列 */
+  flex-direction: column; 
   align-items: center;
   gap: 8px;
   
@@ -57,7 +57,7 @@
   padding: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-size: 18px !important; /* 调整字体大小 */
+  font-size: 18px !important; 
   font-weight: bold;
 }
 
@@ -70,7 +70,7 @@
   font-weight: bold;
 }
 
-/* 分页按钮 */
+
 .dictionary-pagination {
   display: flex;
   justify-content: center;
@@ -95,7 +95,7 @@
   color: white;
 }
 
-/* 右侧 - 释义部分 */
+
 .dictionary-meaning-section {
   flex: 1;
   width: 440px; 
@@ -106,7 +106,7 @@
   align-items: flex-start;
 }
 
-/* 释义框 */
+
 .dictionary-meaning-content {
   background-color: #f9f9f9;
   padding: 20px;

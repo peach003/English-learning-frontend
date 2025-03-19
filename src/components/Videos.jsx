@@ -107,7 +107,7 @@ const Videos = () => {
       <DashboardSidebar />
 
       <div className="videos-container">
-        <h2 className="videos-title">Videos Learning</h2>
+        <h2 className="videos-title">Audios Learning</h2>
 
         <div className="audio-uploader">
           <input type="file" accept="audio/*" onChange={handleFileChange} />

@@ -7,7 +7,7 @@ const handleWordClick = async (word) => {
         });
 
         const data = await response.json();
-        console.log(`✅ Clicked ${word}, New Familiarity: ${data.Familiarity}`);
+        console.log(`Clicked ${word}, New Familiarity: ${data.Familiarity}`);
     } catch (error) {
         console.error("Error recording click:", error);
     }

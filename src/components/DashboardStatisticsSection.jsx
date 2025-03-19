@@ -22,8 +22,8 @@ const DashboardStatisticsSection = () => {
   useEffect(() => {
     if (data.length === 0) return;
 
-    const width = 1000; // SVG 宽度
-    const height = 300; // SVG 高度
+    const width = 1000; 
+    const height = 300; 
     const margin = { top: 20, right: 30, bottom: 50, left: 60 };
 
     const parseDate = d3.timeParse("%Y-%m-%d");
@@ -49,7 +49,7 @@ const DashboardStatisticsSection = () => {
       .style("border-radius", "8px")
       .style("box-shadow", "2px 2px 6px rgba(0, 0, 0, 0.1)");
 
-    // 添加网格线
+   
     const gridLines = svg.append("g")
       .attr("class", "grid");
 
@@ -77,7 +77,7 @@ const DashboardStatisticsSection = () => {
       .attr("stroke-width", 1)
       .attr("stroke-dasharray", "5,5");
 
-    // 画折线
+    
     const line = d3.line()
       .x(d => xScale(d.date))
       .y(d => yScale(d.wordCount))
@@ -90,7 +90,7 @@ const DashboardStatisticsSection = () => {
       .attr("stroke-width", 2.5)
       .attr("d", line);
 
-    // X 轴
+  
     svg.append("g")
       .attr("transform", `translate(0,${height - margin.bottom})`)
       .call(d3.axisBottom(xScale).ticks(data.length).tickFormat(d3.timeFormat("%m-%d")))
@@ -100,7 +100,7 @@ const DashboardStatisticsSection = () => {
       .style("font-size", "12px")
       .attr("transform", "rotate(0)");
 
-    // Y 轴
+    
     svg.append("g")
       .attr("transform", `translate(${margin.left},0)`)
       .call(d3.axisLeft(yScale))
@@ -108,7 +108,7 @@ const DashboardStatisticsSection = () => {
       .attr("fill", "#333")
       .style("font-size", "12px");
 
-    // 圆点
+    
     svg.selectAll("circle")
       .data(formattedData)
       .enter().append("circle")

@@ -13,9 +13,9 @@ function MainContent() {
         {/* Right text content*/}
      
         <div className="text-content">
-          <h1 className="main-heading">Effective English Courses for Kids and Teenagers</h1>
+          <h1 className="main-heading">Master English with AI-Powered, Personalized Learning!</h1>
           <p className="subheading">
-            With professional teachers, flexible learning schedules and courses for all levels, you will speak confidently in no time.
+          Unlock your full potential with our AI-driven English learning platform. Enjoy real-time pronunciation feedback, personalized study plans, and dynamic vocabulary building. Start your journey today and speak English with confidence!
           </p>
 
           {/* Keep the buttons to the right */}
